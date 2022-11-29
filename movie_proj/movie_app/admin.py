@@ -24,7 +24,7 @@ class MovieAdmin(admin.ModelAdmin):
         if mov.rating < 90:
             return 'Зачем это смотреть'
 
-    @admin.action(description='всё в баксы переводим')
+    @admin.action(description='всё в баксы переводим мы')
     def set_dollars(self, request, qs: QuerySet):
         qount_update = qs.update(currency=Movie.USD)
         self.message_user(request,f'было обновлено{qount_update} записей')
